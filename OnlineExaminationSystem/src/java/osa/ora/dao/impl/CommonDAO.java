@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Hashtable;
+import java.util.logging.Level;
 import osa.ora.beans.Action;
 import osa.ora.beans.Notification;
 import osa.ora.dao.impl.helper.ConnectionManager;
@@ -57,6 +58,8 @@ public class CommonDAO implements ICommon{
         } catch (SQLException ex) {
             ex.printStackTrace();
             throw new TechnicalException(ex);
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CommonDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (connection != null) {
                 connectionManager.releaseConnection(connection);
@@ -90,6 +93,8 @@ public class CommonDAO implements ICommon{
             resultSet.close();
         } catch (SQLException ex) {
             throw new TechnicalException(ex);
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CommonDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (connection != null) {
                 connectionManager.releaseConnection(connection);
@@ -123,6 +128,8 @@ public class CommonDAO implements ICommon{
             resultSet.close();
         } catch (SQLException ex) {
             throw new TechnicalException(ex);
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CommonDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (connection != null) {
                 connectionManager.releaseConnection(connection);

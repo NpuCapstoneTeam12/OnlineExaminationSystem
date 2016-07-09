@@ -5,7 +5,9 @@
 package osa.ora.dao.impl.helper;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -29,6 +31,7 @@ public class ConnectionManager {
 
     /**
      * get connection manager singleton instance object
+     *
      * @return ConnectionManager
      */
     public static ConnectionManager getConnectionManager() {
@@ -39,7 +42,8 @@ public class ConnectionManager {
         logger = Logger.getLogger("ConnectionManager");
         try {
             context = new InitialContext();
-            dataSource = (DataSource) context.lookup(IConstant.DATA_SOURCE_NAME);
+//            dataSource = (DataSource) context.lookup(IConstant.DATA_SOURCE_NAME);
+//            dataSource = (DataSource) context.lookup("java::jdbc/exam");
         } catch (NamingException ex) {
             ex.printStackTrace();
         }
@@ -47,24 +51,36 @@ public class ConnectionManager {
 
     /**
      * Get valid DB connection
+     *
      * @return
      * @throws TechnicalException
      */
-    public Connection getConnection() throws TechnicalException {
-        Connection connection = null;
-        try {
-            connection = dataSource.getConnection();
-            numberOfOpenConnections++;
-            if (Logger.isAllowDebugging()) {
-                logger.debug("Number of Open Connections, after Open new connection:" + numberOfOpenConnections);
-            }
-            return connection;
-        } catch (SQLException ex) {
-            throw new TechnicalException("couldn't Open the connection");
-        }
+    public static Connection getConnection()
+            throws SQLException, ClassNotFoundException {
+
+        String dbURL = "jdbc:mysql://localhost:3306/exam";
+        String user = "root";
+        String password = "root";
+        Class.forName("com.mysql.jdbc.Driver");
+        return DriverManager.getConnection(dbURL, user, password);
     }
+
+//    public Connection getConnection() throws TechnicalException {
+//        Connection connection = null;
+//        try {
+//            connection = dataSource.getConnection();
+//            numberOfOpenConnections++;
+//            if (Logger.isAllowDebugging()) {
+//                logger.debug("Number of Open Connections, after Open new connection:" + numberOfOpenConnections);
+//            }
+//            return connection;
+//        } catch (SQLException ex) {
+//            throw new TechnicalException("couldn't Open the connection");
+//        }
+//    }
     /**
      * Release a DB connection
+     *
      * @param connection
      * @throws TechnicalException
      */
@@ -77,6 +93,19 @@ public class ConnectionManager {
             }
         } catch (SQLException ex) {
             throw new TechnicalException("couldn't close the connection");
+        }
+    }
+
+    public static void main(String args[]) {
+        try {
+            Connection conn = null;
+
+            conn = getConnection();
+
+            conn.close();
+        } catch (Exception ex) {
+            System.out.println("ex::" + ex);
+            ex.printStackTrace();
         }
     }
 }

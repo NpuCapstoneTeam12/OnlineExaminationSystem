@@ -14,7 +14,7 @@ public class DBSession {
     private Connection connection = null;
     private ConnectionManager connectionManager;
 
-    public DBSession() throws TechnicalException {
+    public DBSession() throws TechnicalException, SQLException, ClassNotFoundException {
         connectionManager = ConnectionManager.getConnectionManager();
 
         if (connection == null) {

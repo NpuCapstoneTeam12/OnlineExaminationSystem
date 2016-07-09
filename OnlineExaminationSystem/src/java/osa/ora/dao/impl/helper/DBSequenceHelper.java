@@ -19,7 +19,7 @@ public class DBSequenceHelper {
      * @return
      * @throws TechnicalException
      */
-    private static int nextId(int tableId) throws TechnicalException {
+    private static int nextId(int tableId) throws TechnicalException, ClassNotFoundException {
         Connection connection = null;
         try {
             connection = ConnectionManager.getConnectionManager().getConnection();
@@ -51,7 +51,7 @@ public class DBSequenceHelper {
      * @throws java.sql.SQLException
      * @auther VooDoo
      */
-    public static int getNextAccountID() throws TechnicalException {
+    public static int getNextAccountID() throws TechnicalException, ClassNotFoundException {
         Object synObject = new Object();
         int result = 0;
         synchronized (synObject) {
