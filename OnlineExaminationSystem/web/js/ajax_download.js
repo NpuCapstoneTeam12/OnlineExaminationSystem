@@ -104,7 +104,6 @@ function ajax_downloadExistingExam(url,action){
     xmlHttp.send("<?XML version=\"1.0\" encoding=\"UTF-8\"?>");
 }
 function ajax_downloadNewExam(url,action){
-    alert("ajax_downloadNewExam");
     if(running==true){
         alert("Please wait while downloading the exam...");
         return;
@@ -115,7 +114,6 @@ function ajax_downloadNewExam(url,action){
     xmlHttp.onreadystatechange = handleRequest;
     running=true;
     document.getElementById("loading").style.visibility="visible";
-    alert("url::"+url+" ,action::"+action)
     xmlHttp.open("POST",url+"?action="+action+"&voucher="+voucher,true);
     xmlHttp.send("<?XML version=\"1.0\" encoding=\"UTF-8\"?>");
 }
@@ -262,7 +260,6 @@ function checkStarted(){
     ajax_check('ExamServlet',1);
 }
 function startNewExam(){
-    alert("abcd");
     ajax_downloadNewExam('ExamServlet',2);
 }
 function resumeOldExam(){

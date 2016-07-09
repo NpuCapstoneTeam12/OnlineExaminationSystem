@@ -3,6 +3,7 @@ package osa.ora.dao;
 import osa.ora.dao.impl.AccountDAO;
 import osa.ora.dao.impl.CommonDAO;
 import osa.ora.dao.impl.ExamDAO;
+import osa.ora.dao.impl.LoginDAO;
 import osa.ora.spi.IAccount;
 import osa.ora.spi.ICommon;
 import osa.ora.spi.IExam;
@@ -21,4 +22,5 @@ public class DAOFactory{
     public static IExam getExamDAO(){
         return ExamDAO.getExamDAOInstance();
     }
+    
 }

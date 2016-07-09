@@ -21,7 +21,8 @@
       </div>
     </div>
     <div class="logo-container floatleft clearboth">
-        <img alt="logo" src="images/ExamIcon.jpg" class="examLogo" width="80" height="80" style="vertical-align: middle"/> <big><b> Online Exam Tool</b></big>
+<!--        <img alt="logo" src="images/ExamIcon.jpg" class="examLogo" width="80" height="80" style="vertical-align: middle"/> <big><b> Online Examination</b></big>-->
+        <big><b> Online Examination</b></big>
         <div id="welcome"><i>Welcome, Guest</i></div>
     </div>
     <div class="content-container">
@@ -38,8 +39,8 @@
         </div>
             <div id="start" class="form-container" align="left" style="visibility: hidden">
               <div class="form-row">
-                  <img alt="Voucher" src="images/login.jpg" style="vertical-align: middle" width="60" height="40" /> <label>Exam Voucher:</label>
-                <input class="textstyle" type="text" id="voucher" name="voucher" value=""/>
+<!--                  <img alt="Voucher" src="images/login.jpg" style="vertical-align: middle" width="60" height="40" /> <label>Exam Voucher:</label>-->
+                <input class="textstyle" type="hidden" id="voucher" name="voucher" value="<%=session.getAttribute("voucher")%>"/>
               </div>
               <div style="vertical-align: middle" align="center">
                 <img id="loading" name="loading" src="images/loading.gif" alt="Loading" style="visibility: hidden">
