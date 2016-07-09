@@ -20,8 +20,8 @@
       </div>
     </div>
     <div class="logo-container floatleft clearboth">
-        <img alt="logo" src="images/ExamIcon.jpg" class="examLogo" width="80" height="80" style="vertical-align: middle"/> <big><b> Online Exam Tool</b></big>
-        <div id="welcome"><i>Welcome, Guest</i></div>
+        <!--        <img alt="logo" src="images/ExamIcon.jpg" class="examLogo" width="80" height="80" style="vertical-align: middle"/> <big><b> Online Examination</b></big>-->
+        <big><b> Online Examination</b></big>
     </div>
     <div class="content-container">
       <div class="maincontent-container" >
@@ -40,11 +40,7 @@
           </div>
         </div>
         <div class="bottomborder"></div>
-        <div class="footer">
-          Copyrights 2012 - All Rights Reserved - Osama Oransa
-          <br>
-          <img alt="logo" src="images/online-exam-icon.jpg" class="examLogo" width="200" height="150" style="vertical-align: middle"/>          
-        </div>
+        
       </div>
     </div>
   </div>
