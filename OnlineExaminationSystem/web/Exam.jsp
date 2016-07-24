@@ -23,7 +23,7 @@
     <div class="logo-container floatleft clearboth">
 <!--        <img alt="logo" src="images/ExamIcon.jpg" class="examLogo" width="80" height="80" style="vertical-align: middle"/> <big><b> Online Examination</b></big>-->
         <big><b> Online Examination</b></big>
-<!--        <div id="welcome"><i>Welcome, Guest</i></div>-->
+       <div id="welcome"><i>Welcome, Guest</i></div>
     </div>
     <div class="content-container">
 <form  method="post" action="ExamServlet">
